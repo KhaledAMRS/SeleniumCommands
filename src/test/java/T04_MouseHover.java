@@ -49,19 +49,27 @@ public class T04_MouseHover {
 
         //2- Select random profile then hover on the card then click on "View profile" link
         List<WebElement> avatars = driver.findElements(By.cssSelector("img[src=\"/img/avatar-blank.jpg\"]"));
-        int count = avatars.size();
-        // int min = 50;
-        // int max = 100;
-        // Generate random int value from 50 to 100
-        // int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        int count = avatars.size();     //3
+        System.out.println(count);
+        //3- How to select random element
 
-        int selectedUser =  (int)Math.floor(Math.random()*((count-1)-0+1)+0);
+        /*
+        Example:   Generate random int value from 0 to 2
+
+        int min = 0;  int max = 2;
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        */
+
+
+        int min = 0;
+        int max = count-1;   // you are selecting random value from 0 to 2 that's why  max = count-1
+        int selectedUser =  (int)Math.floor(Math.random()*(max-min+1)+min);
         System.out.println(selectedUser);
         action.moveToElement(avatars.get(selectedUser)).perform();
         Thread.sleep(2000);
 
         List<WebElement> profileLinks = driver.findElements(By.cssSelector("a[href*=\"/users/\"]"));
-        profileLinks.get(selectedUser).click();
+        profileLinks.get(selectedUser).click();  // As we mentioned above, SelectedUser can't be 3
 
         /*
       Note: if you tried to click on "View profile" link without hovering on first profile card

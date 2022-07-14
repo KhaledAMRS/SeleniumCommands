@@ -50,7 +50,7 @@ public class T02_Dynamic_Dropdown {
 
         // 2- dynamic dropdown list
         // We couldn't use Select class with dynamic lists, instead we could handle it with findelements() method
-        Thread.sleep(2000);
+        Thread.sleep(7000);
         List<WebElement> list = driver.findElements(By.cssSelector("li[class=\"sbct\"]"));  // 11 weblements
         list.get(6).click();
 
